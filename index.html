@@ -20,6 +20,10 @@
         .font-rale {
             font-family: "Raleway", sans-serif;
         }
+
+        #parentdiv2 div:first-child {
+            display: flex !important;
+        }
     </style>
     <script>
         tailwind.config = {
@@ -446,8 +450,10 @@
                             </div>
                         </div>
 
+                        <div id="parentdiv2"></div>
+
                         <div>
-                            <label class="input flex items-center gap-2 h-auto mb-6">
+                            <label id="inputdiv" class="input flex items-center gap-2 h-auto mb-6">
                                 <input id="couponbtn" type="text"
                                     class="grow focus:outline-none bg-transparent p-5 h-auto w-48"
                                     placeholder="Have any copupon?" />
@@ -461,7 +467,7 @@
                                 <p class="font-medium">Grand Total</p>
                             </div>
                             <div>
-                                <p class="font-medium text-right">BDT <span>0</span></p>
+                                <p class="font-medium text-right">BDT <span id="grandprice">0</span></p>
                             </div>
                         </div>
 
@@ -472,14 +478,14 @@
                         <input type="text" placeholder="Enter your name"
                             class="input input-bordered w-full p-6 h-auto mb-6 rounded-xl" />
                         <p class="mb-4 font-semibold">Phone Number*</p>
-                        <input type="text" placeholder="Enter your phone number"
+                        <input id="numberfield" type="number" placeholder="Enter your phone number"
                             class="input input-bordered w-full p-6 h-auto mb-6 rounded-xl" />
                         <p class="mb-4 font-semibold">Email ID</p>
                         <input type="text" placeholder="Enter your email id"
                             class="input input-bordered w-full p-6 h-auto mb-6 rounded-xl" />
                         <div>
-                            <button class="btn w-full bg-bg1 text-white mb-6" onclick="my_modal_2.showModal()"
-                                disabled>Next</button>
+                            <button id="nextbtn" class="btn w-full bg-bg1 text-white mb-6"
+                                onclick="my_modal_2.showModal()" disabled>Next</button>
                             <dialog id="my_modal_2" class="modal">
                                 <div class="modal-box max-w-[700px] p-14">
                                     <img class="w-24 mb-10 mx-auto" src="img/success.png">

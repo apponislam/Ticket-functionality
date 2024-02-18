@@ -23,7 +23,7 @@ document.getElementById("bus-ticket").addEventListener("click", function buytick
 
         const newdiv1 = document.createElement('div');
         newdiv1.classList.add('flex', 'items-center', 'justify-between', 'mb-4', 'font-medium');
-        var parentdiv = document.getElementById("parentdiv");
+        const parentdiv = document.getElementById("parentdiv");
         parentdiv.appendChild(newdiv1);
 
         const newp1 = document.createElement('p');
@@ -46,11 +46,26 @@ document.getElementById("bus-ticket").addEventListener("click", function buytick
         // console.log(updatePrice2);
 
         const currentSeatn = document.getElementById('totalprice');
+        const grandPrice = document.getElementById("grandprice");
         const currentSeatTextn = currentSeatn.innerText;
         const seatNumbern = parseInt(currentSeatTextn);
         const newSeatn = seatNumbern + 550;
         currentSeatn.innerText = newSeatn;
+        grandPrice.innerText = newSeatn;
         console.log(newSeatn);
+
+
+
+        const numberField = document.getElementById("numberfield");
+        const nextBtn = document.getElementById("nextbtn");
+
+        numberField.addEventListener('keyup', function () {
+            if (0 <= newSeat) {
+                nextBtn.removeAttribute('disabled');
+            } else {
+                nextBtn.setAttribute('disabled', true);
+            }
+        });
 
 
         if (3 < newSeat) {
@@ -66,16 +81,68 @@ document.getElementById("bus-ticket").addEventListener("click", function buytick
 });
 
 
-// Get the input element by its ID
-var inputElement = document.getElementById("couponbtn");
 
-// Add a keyup event listener
-inputElement.addEventListener("keyup", function () {
-    console.log(inputElement.value);
-    if (inputElement.value.toLowerCase().includes("new15")) {
-        console.log("you got 15% discound");
-    };
-    if (inputElement.value.toLowerCase().includes("couple 20")) {
-        console.log("you got 20% discount");
-    }
+const inputfield = document.getElementById("couponbtn");
+
+inputfield.addEventListener("keyup", function (event) {
+    console.log(inputfield.value);
+    const inputbtn = document.getElementById("applybtn");
+    inputbtn.addEventListener("click", function apply() {
+        const totalPrice = document.getElementById("totalprice");
+        const grandPrice = document.getElementById("grandprice");
+        if (inputfield.value.toLowerCase().includes("new15")) {
+            const totalPrice1 = totalPrice.innerText;
+            const totalPrice2 = parseFloat(totalPrice1);
+            const newPrice = (totalPrice2 / 100) * 85;
+            grandPrice.innerText = newPrice;
+            console.log(newPrice);
+
+            const newdiv1 = document.createElement('div');
+            newdiv1.classList.add('flex', 'items-center', 'justify-between', 'my-4', 'font-medium', 'hidden');
+            const parentdiv = document.getElementById("parentdiv2");
+            parentdiv.appendChild(newdiv1);
+
+            const newp1 = document.createElement('p');
+            newp1.innerText = "Discount";
+            newdiv1.appendChild(newp1);
+
+            const newp2 = document.createElement('p');
+            const discount = totalPrice2 - newPrice;
+            newp2.innerText = "BDT " + "-" + discount;
+            newdiv1.appendChild(newp2);
+
+            const inputfulldiv = document.getElementById("inputdiv");
+            inputfulldiv.style.display = "none";
+
+            console.log(newdiv1);
+
+        };
+
+        if (inputfield.value.toLowerCase().includes("couple 20")) {
+            const totalPrice1 = totalPrice.innerText;
+            const totalPrice2 = parseFloat(totalPrice1);
+            const newPrice = (totalPrice2 / 100) * 80;
+            grandPrice.innerText = newPrice;
+            console.log(newPrice);
+
+            const newdiv1 = document.createElement('div');
+            newdiv1.classList.add('flex', 'items-center', 'justify-between', 'my-4', 'font-medium', 'hidden');
+            const parentdiv = document.getElementById("parentdiv2");
+            parentdiv.appendChild(newdiv1);
+
+            const newp1 = document.createElement('p');
+            newp1.innerText = "Discount";
+            newdiv1.appendChild(newp1);
+
+            const newp2 = document.createElement('p');
+            const discount = totalPrice2 - newPrice;
+            newp2.innerText = "BDT " + "-" + discount;
+            newdiv1.appendChild(newp2);
+
+            const inputfulldiv = document.getElementById("inputdiv");
+            inputfulldiv.style.display = "none";
+
+            console.log(newdiv1);
+        }
+    });
 });
