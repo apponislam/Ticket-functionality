@@ -21,15 +21,61 @@ document.getElementById("bus-ticket").addEventListener("click", function buytick
         availableSeat.innerText = newAvailableSeat;
         console.log(newAvailableSeat);
 
+        const newdiv1 = document.createElement('div');
+        newdiv1.classList.add('flex', 'items-center', 'justify-between', 'mb-4', 'font-medium');
+        var parentdiv = document.getElementById("parentdiv");
+        parentdiv.appendChild(newdiv1);
+
+        const newp1 = document.createElement('p');
+        newp1.innerText = eventName.innerText;
+        newdiv1.appendChild(newp1);
+
+        const newp2 = document.createElement('p');
+        newp2.innerText = "Economoy";
+        newdiv1.appendChild(newp2);
+
+        const newp3 = document.createElement('p');
+        newp3.innerText = parseInt(550);
+        newdiv1.appendChild(newp3);
+        const prices = parseInt(newp3.innerText);
+        console.log(parseInt(newp3.innerText));
+
+        // const totalPrice = document.getElementById("total-price");
+        // const updatePrice = prices + 0;
+        // const updatePrice2 = updatePrice + 0;
+        // console.log(updatePrice2);
+
+        const currentSeatn = document.getElementById('totalprice');
+        const currentSeatTextn = currentSeatn.innerText;
+        const seatNumbern = parseInt(currentSeatTextn);
+        const newSeatn = seatNumbern + 550;
+        currentSeatn.innerText = newSeatn;
+        console.log(newSeatn);
+
+
         if (3 < newSeat) {
 
-            const inputField = document.getElementById("applybtn");
-            inputField.disabled = false;
+            const inputbtn = document.getElementById("applybtn");
+            inputbtn.disabled = false;
             document.getElementById("bus-ticket").removeEventListener("click", buyticket);
 
             // break;
             // stop.propagation();
         }
     }
+});
 
+
+// Get the input element by its ID
+var inputElement = document.getElementById("couponbtn");
+
+// Add a keyup event listener
+inputElement.addEventListener("keyup", function () {
+    console.log(inputElement.value);
+    if (inputElement.value.toLowerCase().includes("new15")) {
+        console.log("you got 15% discound");
+    };
+    if (inputElement.value.toLowerCase().includes("couple 20")) {
+        console.log("you got 20% discount");
+    }
 });

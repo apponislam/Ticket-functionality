@@ -416,28 +416,24 @@
                     <div class="bg-[#F7F8F8] p-7 rounded-xl mb-6">
                         <div
                             class="flex items-center justify-between pb-4 mb-4 border-b border-dashed border-[#03071233]">
-                            <div class="w-16">
+                            <div class="">
                                 <p class="font-medium">Seat <span class="px-2 bg-bg1 text-xs text-white rounded-md"
                                         id="current-seat">0</span></p>
                             </div>
-                            <div class="w-24">
+                            <div class="">
                                 <p class="font-medium">Class</p>
                             </div>
-                            <div class="w-14">
+                            <div class="">
                                 <p class="font-medium text-right">Price</p>
                             </div>
                         </div>
 
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-16 font-medium">
+                        <div id="parentdiv">
+                            <!-- <div class="flex items-center justify-between mb-4 font-medium">
                                 <p>C2</p>
-                            </div>
-                            <div class="w-24 font-medium">
                                 <p>Economoy</p>
-                            </div>
-                            <div class="w-14 font-medium text-right">
                                 <p>550</p>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div
@@ -446,13 +442,14 @@
                                 <p class="font-medium">Total Price</p>
                             </div>
                             <div>
-                                <p class="font-medium text-right">BDT <span>0</span></p>
+                                <p class="font-medium text-right">BDT <span id="totalprice">0</span></p>
                             </div>
                         </div>
 
                         <div>
                             <label class="input flex items-center gap-2 h-auto mb-6">
-                                <input type="text" class="grow focus:outline-none bg-transparent p-5 h-auto w-48"
+                                <input id="couponbtn" type="text"
+                                    class="grow focus:outline-none bg-transparent p-5 h-auto w-48"
                                     placeholder="Have any copupon?" />
                                 <button id="applybtn" class="btn bg-bg1 text-white py-2 px-5 h-auto"
                                     disabled>Apply</button>
