@@ -114,6 +114,9 @@ inputfield.addEventListener("keyup", function (event) {
             const inputfulldiv = document.getElementById("inputdiv");
             inputfulldiv.style.display = "none";
 
+            const parentdiv3 = document.getElementById("parentdiv3");
+            parentdiv3.style.display = "none";
+
             console.log(newdiv1);
 
         };
@@ -142,7 +145,19 @@ inputfield.addEventListener("keyup", function (event) {
             const inputfulldiv = document.getElementById("inputdiv");
             inputfulldiv.style.display = "none";
 
+            const parentdiv3 = document.getElementById("parentdiv3");
+            parentdiv3.style.display = "none";
+
             console.log(newdiv1);
+        } else {
+            const newdiv1 = document.createElement('div');
+            newdiv1.classList.add('flex', 'items-center', 'justify-between', 'my-4', 'font-medium', 'hidden', 'text-red-600');
+            const parentdiv = document.getElementById("parentdiv3");
+            parentdiv.appendChild(newdiv1);
+
+            const newp1 = document.createElement('p');
+            newp1.innerText = "Invalid Coupon Code";
+            newdiv1.appendChild(newp1);
         }
     });
 });
