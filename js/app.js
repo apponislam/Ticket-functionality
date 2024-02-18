@@ -60,7 +60,7 @@ document.getElementById("bus-ticket").addEventListener("click", function buytick
         const nextBtn = document.getElementById("nextbtn");
 
         numberField.addEventListener('keyup', function () {
-            if (0 <= newSeat) {
+            if (numberField.value.trim() !== '' && 0 <= newSeat) {
                 nextBtn.removeAttribute('disabled');
             } else {
                 nextBtn.setAttribute('disabled', true);
