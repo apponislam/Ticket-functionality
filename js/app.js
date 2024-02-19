@@ -3,81 +3,86 @@ document.getElementById("bus-ticket").addEventListener("click", function buytick
     const eventName = event.target;
     // let seatArray2 = [];
 
-    if (seatArray.includes(eventName)) {
-        eventName.classList.add('bg-bg1', 'text-white');
-        console.log(eventName);
+    if (!eventName.classList.contains("bg-bg1")) {
+        if (seatArray.includes(eventName)) {
+            eventName.classList.add('bg-bg1', 'text-white');
+            console.log(eventName);
 
-        const currentSeat = document.getElementById('current-seat');
-        const currentSeatText = currentSeat.innerText;
-        const seatNumber = parseInt(currentSeatText);
-        const newSeat = seatNumber + 1;
-        currentSeat.innerText = newSeat;
-        console.log(newSeat);
+            const currentSeat = document.getElementById('current-seat');
+            const currentSeatText = currentSeat.innerText;
+            const seatNumber = parseInt(currentSeatText);
+            const newSeat = seatNumber + 1;
+            currentSeat.innerText = newSeat;
+            console.log(newSeat);
 
-        const availableSeat = document.getElementById('available-seat');
-        const availableSeatText = availableSeat.innerText;
-        const availableNumber = parseInt(availableSeatText);
-        const newAvailableSeat = availableNumber - 1;
-        availableSeat.innerText = newAvailableSeat;
-        console.log(newAvailableSeat);
+            const availableSeat = document.getElementById('available-seat');
+            const availableSeatText = availableSeat.innerText;
+            const availableNumber = parseInt(availableSeatText);
+            const newAvailableSeat = availableNumber - 1;
+            availableSeat.innerText = newAvailableSeat;
+            console.log(newAvailableSeat);
 
-        const newdiv1 = document.createElement('div');
-        newdiv1.classList.add('flex', 'items-center', 'justify-between', 'mb-4', 'font-medium');
-        const parentdiv = document.getElementById("parentdiv");
-        parentdiv.appendChild(newdiv1);
+            const newdiv1 = document.createElement('div');
+            newdiv1.classList.add('flex', 'items-center', 'justify-between', 'mb-4', 'font-medium');
+            const parentdiv = document.getElementById("parentdiv");
+            parentdiv.appendChild(newdiv1);
 
-        const newp1 = document.createElement('p');
-        newp1.innerText = eventName.innerText;
-        newdiv1.appendChild(newp1);
+            const newp1 = document.createElement('p');
+            newp1.innerText = eventName.innerText;
+            newdiv1.appendChild(newp1);
 
-        const newp2 = document.createElement('p');
-        newp2.innerText = "Economoy";
-        newdiv1.appendChild(newp2);
+            const newp2 = document.createElement('p');
+            newp2.innerText = "Economoy";
+            newdiv1.appendChild(newp2);
 
-        const newp3 = document.createElement('p');
-        newp3.innerText = parseInt(550);
-        newdiv1.appendChild(newp3);
-        const prices = parseInt(newp3.innerText);
-        console.log(parseInt(newp3.innerText));
+            const newp3 = document.createElement('p');
+            newp3.innerText = parseInt(550);
+            newdiv1.appendChild(newp3);
+            const prices = parseInt(newp3.innerText);
+            console.log(parseInt(newp3.innerText));
 
-        // const totalPrice = document.getElementById("total-price");
-        // const updatePrice = prices + 0;
-        // const updatePrice2 = updatePrice + 0;
-        // console.log(updatePrice2);
+            // const totalPrice = document.getElementById("total-price");
+            // const updatePrice = prices + 0;
+            // const updatePrice2 = updatePrice + 0;
+            // console.log(updatePrice2);
 
-        const currentSeatn = document.getElementById('totalprice');
-        const grandPrice = document.getElementById("grandprice");
-        const currentSeatTextn = currentSeatn.innerText;
-        const seatNumbern = parseInt(currentSeatTextn);
-        const newSeatn = seatNumbern + 550;
-        currentSeatn.innerText = newSeatn;
-        grandPrice.innerText = newSeatn;
-        console.log(newSeatn);
+            const currentSeatn = document.getElementById('totalprice');
+            const grandPrice = document.getElementById("grandprice");
+            const currentSeatTextn = currentSeatn.innerText;
+            const seatNumbern = parseInt(currentSeatTextn);
+            const newSeatn = seatNumbern + 550;
+            currentSeatn.innerText = newSeatn;
+            grandPrice.innerText = newSeatn;
+            console.log(newSeatn);
 
 
 
-        const numberField = document.getElementById("numberfield");
-        const nextBtn = document.getElementById("nextbtn");
+            const numberField = document.getElementById("numberfield");
+            const nextBtn = document.getElementById("nextbtn");
 
-        numberField.addEventListener('keyup', function () {
-            if (numberField.value.trim() !== '' && 0 <= newSeat) {
-                nextBtn.removeAttribute('disabled');
-            } else {
-                nextBtn.setAttribute('disabled', true);
+            numberField.addEventListener('keyup', function () {
+                if (numberField.value.trim() !== '' && 0 <= newSeat) {
+                    nextBtn.removeAttribute('disabled');
+                } else {
+                    nextBtn.setAttribute('disabled', true);
+                }
+            });
+
+
+            if (3 < newSeat) {
+
+                const inputbtn = document.getElementById("applybtn");
+                inputbtn.disabled = false;
+                document.getElementById("bus-ticket").removeEventListener("click", buyticket);
+
+                // break;
+                // stop.propagation();
             }
-        });
-
-
-        if (3 < newSeat) {
-
-            const inputbtn = document.getElementById("applybtn");
-            inputbtn.disabled = false;
-            document.getElementById("bus-ticket").removeEventListener("click", buyticket);
-
-            // break;
-            // stop.propagation();
         }
     }
+
+
+
 });
 
 
